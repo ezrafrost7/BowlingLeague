@@ -2,7 +2,14 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@model MainViewModel
+
+<h4>Bowler Information</h4>
+
+@foreach (var x in Model.Bowlers)
+            {
+                <div class="row">
+                    <p>@x.BowlerFirstName @x.BowlerMiddleInit @x.BowlerLastName lives at @x.BowlerAddress @x.BowlerCity, @x.BowlerState
+                    @x.BowlerZip. Their Primary phone number is @x.BowlerPhoneNumber.</p>
+                </div>
+            }
