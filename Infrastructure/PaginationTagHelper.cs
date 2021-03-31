@@ -20,6 +20,13 @@ namespace BowlingLeague.Infrastructure
             urlInfo = helperFactory;
         }
         public PageNumberingInfo pageInfo { get; set; }
+
+        //attributes to allow for button styling and such
+        public bool PageClassesEnabled { get; set; } = false;
+        public string PageClass { get; set; }
+        public string PageClassNormal { get; set; }
+        public string PageClassSelected { get; set; }
+
         //the dictionary make parameter passing easier
         [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
         public Dictionary<string, object> KeyValuePairs { get; set; } = new Dictionary<string, object>();
@@ -43,6 +50,13 @@ namespace BowlingLeague.Infrastructure
                 KeyValuePairs["pageNum"] = i;
                 tagA.Attributes["href"] = urlHelper.Action("Index", KeyValuePairs);
                 tagA.InnerHtml.Append(i.ToString());
+
+                //if the classes are enabled in the cshtml file, styling options are available
+                if (PageClassesEnabled)
+                {
+                    tagA.AddCssClass(PageClass);
+                    tagA.AddCssClass(i == pageInfo.CurrentPage ? PageClassSelected : PageClassNormal);
+                }
 
                 tagDiv.InnerHtml.AppendHtml(tagA);
             }

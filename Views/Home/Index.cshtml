@@ -1,10 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    ViewData["Team"] = Model.TeamName;
 }
 
 @model MainViewModel
-
-<h4>Bowler Information</h4>
 
 @foreach (var x in Model.Bowlers)
             {
@@ -14,4 +13,7 @@
                 </div>
             }
 
-<div page-info="@Model.pageNumberingInfo" page-url-team="@Model.TeamName"></div>
+<div page-info="@Model.pageNumberingInfo" page-url-teamname="@Model.TeamName"
+     page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-info">
+
+</div>

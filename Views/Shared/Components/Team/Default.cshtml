@@ -1,12 +1,15 @@
 ﻿@model IEnumerable<Teams>
 
-    <div class="text-center">
-        <a asp-action="Index" asp-controller="Home">Home</a><br />
-    </div>
+<div class="text-center">
+    <a class="btn btn-block 
+       @((string)ViewData["Team"] == null ? "btn-info" : "btn-outline-info")"
+       asp-action="Index" asp-controller="Home" asp-route-teamid="" asp-route-teamname="">Home</a><br />
+
 
     @foreach (var x in Model)
     {
-        <div class="text-center">
-            <a asp-action="Index" asp-controller="Home">@x.TeamName</a>
-        </div>
+            <a class="btn btn-block
+               @(x.TeamName == (string)ViewData["Team"] ? "btn-info" : "btn-outline-info")"
+               asp-action="Index" asp-controller="Home" asp-route-teamid="@x.TeamId" asp-route-teamname="@x.TeamName">@x.TeamName</a>
     }
+</div>

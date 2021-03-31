@@ -1,4 +1,5 @@
 ﻿using BowlingLeague.Models;
+using BowlingLeague.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

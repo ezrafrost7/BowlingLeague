@@ -56,6 +56,30 @@ namespace BowlingLeague
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    "teamnameandid",
+                    "{teamname}/{teamid}",
+                    new {Controller ="Home", action = "Index"}
+                    );
+
+                endpoints.MapControllerRoute(
+                    "teamnameidpage",
+                    "{teamname}/{teamid}/{pagenum}",
+                    new { Controller = "Home", action = "Index" }
+                    );
+
+                endpoints.MapControllerRoute(
+                    "page",
+                    "{pagenum}",
+                    new { Controller = "Home", action = "Index" }
+                    );
+
+                endpoints.MapControllerRoute(
+                    "teamnamepage",
+                    "{teamname}/{pagenum}",
+                    new { Controller = "Home", action = "Index" }
+                    );
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
