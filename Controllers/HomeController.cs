@@ -21,7 +21,7 @@ namespace BowlingLeague.Controllers
             _context = context;
         }
 
-        public IActionResult Index(int pageNum, long? teamId)
+        public IActionResult Index(long? teamId, string teamName, int pageNum = 0)
         {
             //number of items per page
             int pageSize = 5;
@@ -40,6 +40,8 @@ namespace BowlingLeague.Controllers
                     CurrentPage = pageNum,
                     TotalItems = (teamId == null ? _context.Bowlers.Count() : _context.Bowlers.Where(b => b.TeamId == teamId).Count())
                 }
+                ,
+                TeamName = teamName
             });
         }
 

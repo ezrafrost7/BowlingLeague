@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Teams>
+
+    <div class="text-center">
+        <a asp-action="Index" asp-controller="Home">Home</a><br />
+    </div>
+
+    @foreach (var x in Model)
+    {
+        <div class="text-center">
+            <a asp-action="Index" asp-controller="Home">@x.TeamName</a>
+        </div>
+    }
